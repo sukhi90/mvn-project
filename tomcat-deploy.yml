@@ -1,0 +1,11 @@
+---
+- hosts: dbserver
+  vars:
+  - warName: LoginWebApp-1.war 
+  - tomcat_version: 10.1.8
+  - warRemotePath: /opt/apache-tomcat-10.1.8/webapps
+
+  tasks:
+  - name: Copy WAR to Remote server
+    copy: src=/root/simpli/target/LoginWebApp-1.war     dest=/opt/apache-tomcat-10.1.8/webapps/LoginWebApp-1.war owner=tomcat group=tomcat
+
